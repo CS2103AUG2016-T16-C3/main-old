@@ -48,7 +48,7 @@ The details can be changed at any time using the `#edit` command.
 Examples:
   * `#add Dinner with Mum`
 
-##### Extensions to the `#add` command:
+#### Extensions to the `#add` command:
   <a id="at"></a>
   * **At a certain time**: `#at`<br>
     Adds events at a specific time <br>
