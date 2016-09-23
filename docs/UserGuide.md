@@ -48,9 +48,9 @@ The details can be changed at any time using the `#edit` command.
 Examples:
   * `#add Dinner with Mum`
 
-###### Extensions to the `#add` command:
+##### Extensions to the `#add` command:
   <a id="at"></a>
-  * `#at`<br>
+  * **At a certain time**: `#at`<br>
     Adds events at a specific time <br>
     Format: `#at <time> [<date>]`
     > Time indicates when the event begins. See format [here](#data-formats)<br>
@@ -63,7 +63,7 @@ Examples:
   <br><br>
 
   <a id="by"></a>
-  * `#by`<br>
+  * **By a certain time**: `#by`<br>
     Sets deadlines for tasks <br>
     Format: `#by <time> [<date>]`
     > Time indicates by when the task needs to be finished. See format [here](#data-formats)<br>
@@ -76,7 +76,7 @@ Examples:
   <br><br>
 
   <a id="after"></a>
-  * `#after`<br>
+  * **After a certain time**: `#after`<br>
     Indicates that the task should be done _after_ a certain time<br>
     Format: `#after <time> [<date>]`
     > Time indicates the time after which the task should be done. See format [here](#data-formats)<br>
@@ -89,7 +89,7 @@ Examples:
   <br><br>
 
   <a id="venue"></a>
-  * `#venue`<br>
+  * **At a Venue**: `#venue`<br>
     Indicates the place where the task/event will happen<br>
     Format: `#venue <description of venue>`
     > The venue description is just stored as plain text
