@@ -24,6 +24,7 @@
 `[date]`: Means date is an optional argument<br>
 `<hour>`: Replace by the actual hour
 
+<a id="help"></a>
 #### Viewing help: `#help`
 Format: `#help`
 
@@ -50,8 +51,8 @@ Examples:
   * `#at`<br>
     Adds events at a specific time <br>
     Format: `#at <time> [<date>]`
-    > Time indicates when the event begins. [See format here](#data-formats)<br>
-    Date indicates the date on which the event is. Defaults to the current day if not specified. [See format here](#data-formats)
+    > Time indicates when the event begins. See format [here](#data-formats)<br>
+    Date indicates the date on which the event is. Defaults to the current day if not specified. See format [here](#data-formats)
 
     Examples:
     * `#add Dinner with Mum #at 7:15pm`
@@ -62,8 +63,8 @@ Examples:
   * `#by`<br>
     Sets deadlines for tasks <br>
     Format: `#by <time> [<date>]`
-    > Time indicates by when the task needs to be finished. [See format here](#data-formats)<br>
-    Date indicates the date by which the task needs to be finished. Defaults to the current day if not specified. [See format here](#data-formats)
+    > Time indicates by when the task needs to be finished. See format [here](#data-formats)<br>
+    Date indicates the date by which the task needs to be finished. Defaults to the current day if not specified. See format [here](#data-formats)
 
     Examples:
       * `#add Finish 2103T Tutorial #by 11:59pm`
@@ -74,8 +75,8 @@ Examples:
   * `#after`<br>
     Indicates that the task should be done _after_ a certain time<br>
     Format: `#after <time> [<date>]`
-    > Time indicates the time after which the task should be done. [See format here](#data-formats)<br>
-    Date indicates the date after which the task should be done. Defaults to the current day if not specified. [See format here](#data-formats)
+    > Time indicates the time after which the task should be done. See format [here](#data-formats)<br>
+    Date indicates the date after which the task should be done. Defaults to the current day if not specified. See format [here](#data-formats)
 
     Examples:
       * `#add Pay bills #after 11:50pm`
@@ -95,20 +96,40 @@ Examples:
 
 ## Data Formats
 
-  * `time`: `<hour>[:<minutes>]<am/pm>`
-  * `date`: `<day> <month> [<year>]`
+  * `time`: `<hour>[:<minutes>]<am/pm>`<br>
+    Examples:
+    * `7pm`
+    * `3:45am`
+    * `1:00pm`
+  * `day`: `<Integer>`<br>
+    Examples:
+    * `1`
+    * `31`
+  * `month`: `<3-letter abbreviation>`<br>
+    Examples:
+    * `Jan`
+    * `Mar`
+    * `Sep`
+  * `year`: `4-digit integer`<br>
+    Examples:
+    * `2016`
+    * `2020`
+  * `date`: `<day> <month> [<year>]`<br>
+    Examples:
+    * `5 Oct`
+    * `5 Nov`
 
 ## Command Summary
 
 Type | Command | Format
 :--------: | :--------: | ----- |
-Basic | Help | `#help`
+Basic | [Help](#help) | `#help`
 Basic | Add | `#add <task description> [<extensions>]`
 Basic | List | `#list`
 Basic | Delete | `#delete 1`
 Extension | At | `#at <time> [<date>]`
-Extension | Venue | `#venue Pizza Hut`
-Extension | By | `#by 11:59pm 20 Nov`
-Extension | After | `#after 20 Nov`
+Extension | Venue | `#venue <description of venue>`
+Extension | By | `#by <time> [<date>]`
+Extension | After | `#after <time> [<date>]`
 Data | Time | `<hour>[:<minutes>]<am/pm>`
 Data | Data | `<day> <month> [<year>]`
