@@ -37,6 +37,7 @@ Examples:
   * `#help #add`
   * `#help #list`
 
+<a id="add"></a>
 #### Adding a task to the list: `#add`
 Format: `#add <task description> [<extensions>]`
 
@@ -48,6 +49,7 @@ Examples:
   * `#add Dinner with Mum`
 
 ###### Extensions to the `#add` command:
+  <a id="at"></a>
   * `#at`<br>
     Adds events at a specific time <br>
     Format: `#at <time> [<date>]`
@@ -60,6 +62,7 @@ Examples:
     * `#add Dinner with Mum #at 7:15pm 15 Jan 2017`
   <br><br>
 
+  <a id="by"></a>
   * `#by`<br>
     Sets deadlines for tasks <br>
     Format: `#by <time> [<date>]`
@@ -72,6 +75,7 @@ Examples:
       * `#add Finish 2103T Tutorial #by 11:59pm 5th Oct 2016`
   <br><br>
 
+  <a id="after"></a>
   * `#after`<br>
     Indicates that the task should be done _after_ a certain time<br>
     Format: `#after <time> [<date>]`
@@ -84,6 +88,7 @@ Examples:
       * `#add Pay bills #after 11:50pm 30 Dec 2030`
   <br><br>
 
+  <a id="venue"></a>
   * `#venue`<br>
     Indicates the place where the task/event will happen<br>
     Format: `#venue <description of venue>`
@@ -96,24 +101,29 @@ Examples:
 
 ## Data Formats
 
+  <a id="time"></a>
   * `time`: `<hour>[:<minutes>]<am/pm>`<br>
     Examples:
     * `7pm`
     * `3:45am`
     * `1:00pm`
+  <a id="day"></a>
   * `day`: `<Integer>`<br>
     Examples:
     * `1`
     * `31`
+  <a id="month"></a>
   * `month`: `<3-letter abbreviation>`<br>
     Examples:
     * `Jan`
     * `Mar`
     * `Sep`
+  <a id="year"></a>
   * `year`: `4-digit integer`<br>
     Examples:
     * `2016`
     * `2020`
+  <a id="date"></a>
   * `date`: `<day> <month> [<year>]`<br>
     Examples:
     * `5 Oct`
@@ -124,12 +134,15 @@ Examples:
 Type | Command | Format
 :--------: | :--------: | ----- |
 Basic | [Help](#help) | `#help`
-Basic | Add | `#add <task description> [<extensions>]`
-Basic | List | `#list`
-Basic | Delete | `#delete 1`
-Extension | At | `#at <time> [<date>]`
-Extension | Venue | `#venue <description of venue>`
-Extension | By | `#by <time> [<date>]`
-Extension | After | `#after <time> [<date>]`
-Data | Time | `<hour>[:<minutes>]<am/pm>`
-Data | Data | `<day> <month> [<year>]`
+Basic | [Add](#add) | `#add <task description> [<extensions>]`
+Basic | [List](#) | `#list`
+Basic | [Delete](#) | `#delete 1`
+Extension | [At](#at) | `#at <time> [<date>]`
+Extension | [By](#by) | `#by <time> [<date>]`
+Extension | [After](#after) | `#after <time> [<date>]`
+Extension | [Venue](#venue) | `#venue <description of venue>`
+Data | [Time](#time) | `<hour>[:<minutes>]<am/pm>`
+Data | [Day](#day) | `<Integer>`
+Data | [Month](#month) | `<3-letter abbreviation>`
+Data | [Year](#year) | `<4-digit integer>`
+Data | [Date](#date) | `<day> <month> [<year>]`
