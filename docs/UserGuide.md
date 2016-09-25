@@ -48,17 +48,24 @@ Without any extensions, this will be added as a floating task. <br>
 The details can be changed at any time using the `#edit` command.
 
 Examples:
-  * `#add Dinner with Mum`
+  * `#add Dinner with Arthur`
+  * `#add Dinner with Arthur #at 8pm 25 Sep #venue Avalon`
+  * `#add Finish 2103T Tutorial #before 11:59pm 29 Sep`
+  * `#add Pay bills #after 11:59pm 20 Aug 2030`
 
 <a id="list"></a>
 #### Listing tasks: `#list`
 Format: `#list [<extensions>]`
 
 > Without any extensions, this will simple list all tasks<br>
-Extensions allow listing according to what you wish to see
+Extensions allow filtering the list according to what you wish to see
 
 Examples:
   * `#list`
+  * `#list #before 2pm 30 Oct`
+  * `#list #after 1am 1 Oct`
+  * `#list #venue Avalon`
+  * `#list #after 1am 1 Oct #venue Avalon`
 
 <a id="edit"></a>
 #### Editing tasks: `#edit`
@@ -68,7 +75,9 @@ Format: `#edit <task number> [<extensions>]`
 Fields for the specified extensions will be changed
 
 Examples:
-  * `#edit 1 #desc Dinner with Dad`
+  * `#edit 1 #desc Dinner with Guinevere`
+  * `#edit 2 #at 1am 3 Oct`
+  * `#edit 1 #desc Dinner with Guinevere #venue Under the stars`
 
 <a id="delete"></a>
 #### Deleting tasks: `#delete`
@@ -84,7 +93,7 @@ Examples:
 #### Undoing previous changes: `#undo`
 Format: `#undo [<number of changes>]`
 
-> Number of changes is a number specifying how many changes you want to undo. If left out, default is 1 change.
+> Number of changes is a number specifying how many changes you want to undo. If left out, default is 1 change
 
 Examples:
   * `#undo`
@@ -99,7 +108,9 @@ Format: `#desc <task description>`
 >Task description is simply plaintext about your task
 
 Examples:
-* `#add #desc Dinner with Mum`
+  * `#add #desc Dinner with Arthur`
+  * `#edit 2 #desc Dinner with Guinevere`
+  * `#list #desc Finish 2103T Tutorial`
 
 <a id="at"></a>
 #### At a certain time: `#at`
@@ -109,7 +120,9 @@ Format: `#at <time> [<date>]`
 Date indicates the date on which the event is. Defaults to the current day if not specified. See format [here](#data-formats)
 
 Examples:
-* `#add Dinner with Mum #at 7:15pm`
+  * `#add Submit assignment #at 11:59pm 3 Oct`
+  * `#edit 1 #at 11:58pm 3 Oct`
+  * `#list #at 2pm`
 
 <a id="before"></a>
 #### Before a certain time: `#before`
@@ -119,7 +132,9 @@ Format: `#before <time> [<date>]`
 Date indicates the last date by which this task should be done. Defaults to the current day if not specified. See format [here](#data-formats)
 
 Examples:
-  * `#add Finish 2103T Tutorial #before 11:59pm`
+  * `#add Finish 2103T Tutorial #before 1pm`
+  * `#edit 3 #before 12:30pm`
+  * `#list #before 5pm 20 Oct`
 
 <a id="after"></a>
 #### After a certain time: `#after`
@@ -129,6 +144,8 @@ Date indicates the date after which the task should be done. Defaults to the cur
 
 Examples:
   * `#add Pay bills #after 11:50pm 30 Dec 2030`
+  * `#edit 2 #after 11:59pm 30 Dec 2030`
+  * `#list #after 11am`
 
 <a id="venue"></a>
 #### At a Venue: `#venue`
@@ -137,6 +154,8 @@ Format: `#venue <description of venue>`
 
 Examples:
   * `#add Lunch with Arthur #venue Avalon`
+  * `#edit 1 #venue Round Table`
+  * `#list #venue Avalon`
 
 ## Data Formats
 
