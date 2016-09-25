@@ -49,7 +49,6 @@ The details can be changed at any time using the `#edit` command.
 
 Examples:
   * `#add Dinner with Mum`
-<!-- TODO: add other examples -->
 
 <a id="list"></a>
 #### Listing tasks: `#list`
@@ -60,7 +59,6 @@ Extensions allow listing according to what you wish to see
 
 Examples:
   * `#list`
-<!-- TODO: add other examples -->
 
 <a id="edit"></a>
 #### Editing tasks: `#edit`
@@ -71,7 +69,6 @@ Fields for the specified extensions will be changed
 
 Examples:
   * `#edit 1 #desc Dinner with Dad`
-<!-- TODO: add other examples -->
 
 <a id="delete"></a>
 #### Deleting tasks: `#delete`
@@ -103,7 +100,6 @@ Format: `#desc <task description>`
 
 Examples:
 * `#add #desc Dinner with Mum`
-<!-- TODO: add other examples -->
 
 <a id="at"></a>
 #### At a certain time: `#at`
@@ -114,7 +110,6 @@ Date indicates the date on which the event is. Defaults to the current day if no
 
 Examples:
 * `#add Dinner with Mum #at 7:15pm`
-<!-- TODO: add other examples -->
 
 <a id="before"></a>
 #### Before a certain time: `#before`
@@ -125,7 +120,6 @@ Date indicates the last date by which this task should be done. Defaults to the 
 
 Examples:
   * `#add Finish 2103T Tutorial #before 11:59pm`
-<!-- TODO: add other examples -->
 
 <a id="after"></a>
 #### After a certain time: `#after`
@@ -135,7 +129,6 @@ Date indicates the date after which the task should be done. Defaults to the cur
 
 Examples:
   * `#add Pay bills #after 11:50pm 30 Dec 2030`
-<!-- TODO: add other examples -->
 
 <a id="venue"></a>
 #### At a Venue: `#venue`
@@ -144,7 +137,6 @@ Format: `#venue <description of venue>`
 
 Examples:
   * `#add Lunch with Arthur #venue Avalon`
-<!-- TODO: add other examples -->
 
 ## Data Formats
 
