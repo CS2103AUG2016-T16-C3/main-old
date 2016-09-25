@@ -20,9 +20,11 @@
 
 ## Features
 
-#### Notation used:
+### Notation used:
 `[date]`: Means date is an optional argument<br>
 `<hour>`: Replace by the actual hour
+
+### Primary Commands
 
 <a id="help"></a>
 #### Viewing help: `#help`
@@ -39,65 +41,78 @@ Examples:
 
 <a id="add"></a>
 #### Adding a task to the list: `#add`
-Format: `#add <task description> [<extensions>]`
+Format: `#add #desc <task description> [<extensions>]`
 
-> Task Description outlines the task to be added.<br> Extensions allow specifying more details about the task, such as deadlines and venues. <br>
+> Task description outlines the task to be added.<br> Extensions allow specifying more details about the task, such as deadlines and venues. <br>
 Without any extensions, this will be added as a floating task. <br>
 The details can be changed at any time using the `#edit` command.
 
 Examples:
   * `#add Dinner with Mum`
+<!-- TODO: add other examples -->
 
-#### Extensions to the `#add` command:
-  <a id="at"></a>
-  * **At a certain time**: `#at`<br>
-    Adds events at a specific time <br>
-    Format: `#at <time> [<date>]`
-    > Time indicates when the event begins. See format [here](#data-formats)<br>
-    Date indicates the date on which the event is. Defaults to the current day if not specified. See format [here](#data-formats)
+#### Listing tasks: `#list`
+Format: `#list [<extensions>]`
 
-    Examples:
-    * `#add Dinner with Mum #at 7:15pm`
-    * `#add Dinner with Mum #at 7pm 5 Oct`
-    * `#add Dinner with Mum #at 7:15pm 15 Jan 2017`
-  <br><br>
+> Without any extensions, this will simple list all tasks<br>
+Extensions allow listing according to what you wish to see<br>
 
-  <a id="by"></a>
-  * **By a certain time**: `#by`<br>
-    Sets deadlines for tasks <br>
-    Format: `#by <time> [<date>]`
-    > Time indicates by when the task needs to be finished. See format [here](#data-formats)<br>
-    Date indicates the date by which the task needs to be finished. Defaults to the current day if not specified. See format [here](#data-formats)
+Examples:
+  * `#list`
+<!-- TODO: add other examples -->
 
-    Examples:
-      * `#add Finish 2103T Tutorial #by 11:59pm`
-      * `#add Finish 2103T Tutorial #by 11:59pm 5th Oct`
-      * `#add Finish 2103T Tutorial #by 11:59pm 5th Oct 2016`
-  <br><br>
+### Extensions:
 
-  <a id="after"></a>
-  * **After a certain time**: `#after`<br>
-    Indicates that the task should be done _after_ a certain time<br>
-    Format: `#after <time> [<date>]`
-    > Time indicates the time after which the task should be done. See format [here](#data-formats)<br>
-    Date indicates the date after which the task should be done. Defaults to the current day if not specified. See format [here](#data-formats)
+<a id="desc"></a>
+#### Task Description: `#desc`
+Format: `#desc <task description>`
 
-    Examples:
-      * `#add Pay bills #after 11:50pm`
-      * `#add Pay bills #after 11:50pm 30 Dec`
-      * `#add Pay bills #after 11:50pm 30 Dec 2030`
-  <br><br>
+>Task description is simply plaintext about your task
 
-  <a id="venue"></a>
-  * **At a Venue**: `#venue`<br>
-    Indicates the place where the task/event will happen<br>
-    Format: `#venue <description of venue>`
-    > The venue description is just stored as plain text
+Examples:
+* `#add #desc Dinner with Mum`
+<!-- TODO: add other examples -->
 
-    Examples:
-      * `#add Prof's birthday party #venue i3-Aud`
-      * `#add Date with destiny #venue Beneath the majestic skies`
-      * `#add Lunch with Arthur #venue Avalon`
+<a id="at"></a>
+#### At a certain time: `#at`
+Format: `#at <time> [<date>]`
+
+> Time indicates when the event begins. See format [here](#data-formats)<br>
+Date indicates the date on which the event is. Defaults to the current day if not specified. See format [here](#data-formats)
+
+Examples:
+* `#add Dinner with Mum #at 7:15pm`
+<!-- TODO: add other examples -->
+
+<a id="before"></a>
+#### Before a certain time: `#before`
+Format: `#before <time> [<date>]`
+
+> Time indicates what is the last time by which this task should be done. See format [here](#data-formats)<br>
+Date indicates the last date by which this task should be done. Defaults to the current day if not specified. See format [here](#data-formats)
+
+Examples:
+  * `#add Finish 2103T Tutorial #before 11:59pm`
+<!-- TODO: add other examples -->
+
+<a id="after"></a>
+#### After a certain time: `#after`
+Format: `#after <time> [<date>]`
+> Time indicates the time after which the task should be done. See format [here](#data-formats)<br>
+Date indicates the date after which the task should be done. Defaults to the current day if not specified. See format [here](#data-formats)
+
+Examples:
+  * `#add Pay bills #after 11:50pm 30 Dec 2030`
+<!-- TODO: add other examples -->
+
+<a id="venue"></a>
+#### At a Venue: `#venue`
+Format: `#venue <description of venue>`
+> The venue description is just stored as plain text
+
+Examples:
+  * `#add Lunch with Arthur #venue Avalon`
+<!-- TODO: add other examples -->
 
 ## Data Formats
 
@@ -138,7 +153,7 @@ Basic | [Add](#add) | `#add <task description> [<extensions>]`
 Basic | [List](#) | `#list`
 Basic | [Delete](#) | `#delete 1`
 Extension | [At](#at) | `#at <time> [<date>]`
-Extension | [By](#by) | `#by <time> [<date>]`
+Extension | [Before](#by) | `#by <time> [<date>]`
 Extension | [After](#after) | `#after <time> [<date>]`
 Extension | [Venue](#venue) | `#venue <description of venue>`
 Data | [Time](#time) | `<hour>[:<minutes>]<am/pm>`
