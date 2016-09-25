@@ -51,17 +51,49 @@ Examples:
   * `#add Dinner with Mum`
 <!-- TODO: add other examples -->
 
+<a id="list"></a>
 #### Listing tasks: `#list`
 Format: `#list [<extensions>]`
 
 > Without any extensions, this will simple list all tasks<br>
-Extensions allow listing according to what you wish to see<br>
+Extensions allow listing according to what you wish to see
 
 Examples:
   * `#list`
 <!-- TODO: add other examples -->
 
-### Extensions:
+<a id="edit"></a>
+#### Editing tasks: `#edit`
+Format: `#edit <task number> [<extensions>]`
+
+> Task number specifies which out of the tasks on the screen you wish to modify<br>
+Fields for the specified extensions will be changed
+
+Examples:
+  * `#edit 1 #desc Dinner with Dad`
+<!-- TODO: add other examples -->
+
+<a id="delete"></a>
+#### Deleting tasks: `#delete`
+Format: `#delete <task number>`
+
+> Task number specifies which out of the tasks on the screen you wish to delete
+
+Examples:
+  * `#delete 1`
+  * `#delete 3`
+
+<a id="undo"></a>
+#### Undoing previous changes: `#undo`
+Format: `#undo [<number of changes>]`
+
+> Number of changes is a number specifying how many changes you want to undo. If left out, default is 1 change.
+
+Examples:
+  * `#undo`
+  * `#undo 3`
+
+### Extensions
 
 <a id="desc"></a>
 #### Task Description: `#desc`
@@ -116,33 +148,43 @@ Examples:
 
 ## Data Formats
 
-  <a id="time"></a>
-  * `time`: `<hour>[:<minutes>]<am/pm>`<br>
-    Examples:
-    * `7pm`
-    * `3:45am`
-    * `1:00pm`
-  <a id="day"></a>
-  * `day`: `<Integer>`<br>
-    Examples:
-    * `1`
-    * `31`
-  <a id="month"></a>
-  * `month`: `<3-letter abbreviation>`<br>
-    Examples:
-    * `Jan`
-    * `Mar`
-    * `Sep`
-  <a id="year"></a>
-  * `year`: `4-digit integer`<br>
-    Examples:
-    * `2016`
-    * `2020`
-  <a id="date"></a>
-  * `date`: `<day> <month> [<year>]`<br>
-    Examples:
-    * `5 Oct`
-    * `5 Nov`
+<a id="time"></a>
+* `time`: `<hour>[:<minutes>]<am/pm>`<br>
+  Examples:
+  * `7pm`
+  * `3:45am`
+  * `1:00pm`
+<a id="hour"></a>
+* `hour`: `<Number 1-12>`<br>
+  Examples:
+  * `7`
+  * `12`
+<a id="minutes"></a>
+* `minutes`: `<2-digit number 00-59>`<br>
+  Examples:
+  * `03`
+  * `58`
+<a id="day"></a>
+* `day`: `<Number 1-31>`<br>
+  Examples:
+  * `1`
+  * `31`
+<a id="month"></a>
+* `month`: `<3-letter abbreviation>`<br>
+  Examples:
+  * `Jan`
+  * `Mar`
+  * `Sep`
+<a id="year"></a>
+* `year`: `4-digit integer`<br>
+  Examples:
+  * `2016`
+  * `2020`
+<a id="date"></a>
+* `date`: `<day> <month> [<year>]`<br>
+  Examples:
+  * `5 Oct`
+  * `5 Nov`
 
 ## Command Summary
 
@@ -150,14 +192,19 @@ Type | Command | Format
 :--------: | :--------: | ----- |
 Basic | [Help](#help) | `#help`
 Basic | [Add](#add) | `#add <task description> [<extensions>]`
-Basic | [List](#) | `#list`
-Basic | [Delete](#) | `#delete 1`
+Basic | [List](#list) | `#list [<extensions>]`
+Basic | [Edit](#edit) | `#edit <task number> [<extensions>]`
+Basic | [Delete](#delete) | `#delete <task number>`
+Basic | [Undo](#undo) | `#undo [<number of changes>]`
+Extension | [Desc](#desc) | `#desc <task description>`
 Extension | [At](#at) | `#at <time> [<date>]`
-Extension | [Before](#by) | `#by <time> [<date>]`
+Extension | [Before](#before) | `#before <time> [<date>]`
 Extension | [After](#after) | `#after <time> [<date>]`
 Extension | [Venue](#venue) | `#venue <description of venue>`
 Data | [Time](#time) | `<hour>[:<minutes>]<am/pm>`
-Data | [Day](#day) | `<Integer>`
+Data | [Hour](#hour) | `<Number 1-12>`
+Data | [Minutes](#minutes) | `<2-digit number 00-59>`
+Data | [Day](#day) | `<Number 1-31>`
 Data | [Month](#month) | `<3-letter abbreviation>`
-Data | [Year](#year) | `<4-digit integer>`
+Data | [Year](#year) | `<4-digit number>`
 Data | [Date](#date) | `<day> <month> [<year>]`
