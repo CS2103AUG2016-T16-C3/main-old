@@ -89,15 +89,35 @@ Examples:
   * `#delete 1`
   * `#delete 3`
 
+<a id="done"></a>
+#### Ticking off tasks: `#done`
+Format: `#done <task number>`
+
+> Task number specifies which out of the tasks on the screen you wish to tick off
+
+Examples:
+  * `#done 1`
+  * `#done 3`
+
 <a id="undo"></a>
 #### Undoing previous changes: `#undo`
 Format: `#undo [<number of changes>]`
 
-> Number of changes is a number specifying how many changes you want to undo. If left out, default is 1 change
+> Number of changes is a number specifying how many changes you want to undo. If left out, default is 1 change. Max number of changes that you can undo is 25
 
 Examples:
   * `#undo`
   * `#undo 3`
+
+<a id="redo"></a>
+#### Redoing undone changes: `#redo`
+Format: `#redo [<number of changes>]`
+
+> Number of changes is a number specifying how many changes you want to redo. If left out, default is 1 change
+
+Examples:
+  * `#redo`
+  * `#redo 3`
 
 ### Extensions
 
@@ -116,8 +136,8 @@ Examples:
 #### At a certain time: `#at`
 Format: `#at <time> [<date>]`
 
-> Time indicates when the event begins. See format [here](#data-formats)<br>
-Date indicates the date on which the event is. Defaults to the current day if not specified. See format [here](#data-formats)
+> Time indicates when the event begins. See format [here](#time)<br>
+Date indicates the date on which the event is. Defaults to the current day if not specified. See format [here](#date)
 
 Examples:
   * `#add Submit assignment #at 11:59pm 3 Oct`
@@ -128,8 +148,8 @@ Examples:
 #### Before a certain time: `#before`
 Format: `#before <time> [<date>]`
 
-> Time indicates what is the last time by which this task should be done. See format [here](#data-formats)<br>
-Date indicates the last date by which this task should be done. Defaults to the current day if not specified. See format [here](#data-formats)
+> Time indicates what is the last time by which this task should be done. See format [here](#time)<br>
+Date indicates the last date by which this task should be done. Defaults to the current day if not specified. See format [here](#date)
 
 Examples:
   * `#add Finish 2103T Tutorial #before 1pm`
@@ -139,13 +159,24 @@ Examples:
 <a id="after"></a>
 #### After a certain time: `#after`
 Format: `#after <time> [<date>]`
-> Time indicates the time after which the task should be done. See format [here](#data-formats)<br>
-Date indicates the date after which the task should be done. Defaults to the current day if not specified. See format [here](#data-formats)
+> Time indicates the time after which the task should be done. See format [here](#time)<br>
+Date indicates the date after which the task should be done. Defaults to the current day if not specified. See format [here](#date)
 
 Examples:
   * `#add Pay bills #after 11:50pm 30 Dec 2030`
   * `#edit 2 #after 11:59pm 30 Dec 2030`
   * `#list #after 11am`
+
+<a id="duration"></a>
+#### For a certain duration: `#duration`
+Format: `#duration <number> <time units>`
+> Number is the number of time units for which the task will last<br>
+Time units is one of mins/hrs/days/weeks/years
+
+Examples:
+  * `#add Mid-term exam #at 7pm 3 Oct 2016 #duration 1 hr`
+  * `#edit 2 #duration 2 weeks`
+  * `#list #duration 3 hrs`
 
 <a id="venue"></a>
 #### At a Venue: `#venue`
@@ -166,7 +197,7 @@ Examples:
   * `3:45am`
   * `1:00pm`
 <a id="hour"></a>
-* `hour`: `<Number 1-12>`<br>
+* `hour`: `<number 1-12>`<br>
   Examples:
   * `7`
   * `12`
@@ -175,8 +206,13 @@ Examples:
   Examples:
   * `03`
   * `58`
+<a id="date"></a>
+* `date`: `<day> <month> [<year>]`<br>
+  Examples:
+  * `5 Oct`
+  * `5 Nov`
 <a id="day"></a>
-* `day`: `<Number 1-31>`<br>
+* `day`: `<number 1-31>`<br>
   Examples:
   * `1`
   * `31`
@@ -191,31 +227,29 @@ Examples:
   Examples:
   * `2016`
   * `2020`
-<a id="date"></a>
-* `date`: `<day> <month> [<year>]`<br>
-  Examples:
-  * `5 Oct`
-  * `5 Nov`
 
 ## Command Summary
 
 Type | Command | Format
 :--------: | :--------: | ----- |
-Basic | [Help](#help) | `#help`
-Basic | [Add](#add) | `#add <task description> [<extensions>]`
-Basic | [List](#list) | `#list [<extensions>]`
-Basic | [Edit](#edit) | `#edit <task number> [<extensions>]`
-Basic | [Delete](#delete) | `#delete <task number>`
-Basic | [Undo](#undo) | `#undo [<number of changes>]`
+Primary | [Help](#help) | `#help`
+Primary | [Add](#add) | `#add <task description> [<extensions>]`
+Primary | [List](#list) | `#list [<extensions>]`
+Primary | [Edit](#edit) | `#edit <task number> [<extensions>]`
+Primary | [Delete](#delete) | `#delete <task number>`
+Primary | [Done](#done) | `#done <task number>`
+Primary | [Undo](#undo) | `#undo [<number of changes>]`
+Primary | [Redo](#redo) | `#redo [<number of changes>]`
 Extension | [Desc](#desc) | `#desc <task description>`
 Extension | [At](#at) | `#at <time> [<date>]`
 Extension | [Before](#before) | `#before <time> [<date>]`
 Extension | [After](#after) | `#after <time> [<date>]`
+Extension | [Duration](#duration) | `#duration <number> <time units>`
 Extension | [Venue](#venue) | `#venue <description of venue>`
 Data | [Time](#time) | `<hour>[:<minutes>]<am/pm>`
-Data | [Hour](#hour) | `<Number 1-12>`
+Data | [Hour](#hour) | `<number 1-12>`
 Data | [Minutes](#minutes) | `<2-digit number 00-59>`
-Data | [Day](#day) | `<Number 1-31>`
+Data | [Day](#day) | `<number 1-31>`
 Data | [Month](#month) | `<3-letter abbreviation>`
 Data | [Year](#year) | `<4-digit number>`
 Data | [Date](#date) | `<day> <month> [<year>]`
