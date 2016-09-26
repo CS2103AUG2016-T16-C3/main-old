@@ -13,7 +13,7 @@
 4. Some commands to get you started:
   * **`#help`** : Brings up the help page.
   * **`#add`**` Dinner with Mum` : Adds a task `Dinner with Mum` to your list.
-  * **`#list`** : Lists all tasks.
+  * **`#search`** : Lists all the tasks.
   * **`#delete`**` 3` : Deletes the 3rd contact as visible in the current list.
 
   Don't forget the `#` before the commands!
@@ -37,7 +37,7 @@ Help is also shown if you enter an incorrect command, like `asdf`
 Examples:
   * `#help`
   * `#help #add`
-  * `#help #list`
+  * `#help #search`
 
 
 <a id="add"></a>
@@ -55,20 +55,20 @@ Examples:
   * `#add Pay bills #after 11:59pm 20 Aug 2030`
 
 
-<a id="list"></a>
-#### Listing tasks: `#list`
-Format: `#list [<extensions>]`
+<a id="search"></a>
+#### Searching for tasks: `#search`
+Format: `#search [<extensions>]`
 
 > Without any extensions, this will simple list all tasks<br>
 Extensions allow filtering the list according to what you wish to see
 
 Examples:
-  * `#list`
-  * `#list #before 2pm 30 Oct`
-  * `#list #after 1am 1 Oct`
-  * `#list #after 1am 1 Oct #before 2pm 30 Oct`
-  * `#list #venue Avalon`
-  * `#list #after 1am 1 Oct #venue Avalon`
+  * `#search`
+  * `#search #before 2pm 30 Oct`
+  * `#search #after 1am 1 Oct`
+  * `#search #after 1am 1 Oct #before 2pm 30 Oct`
+  * `#search #venue Avalon`
+  * `#search #after 1am 1 Oct #venue Avalon`
 
 
 <a id="edit"></a>
@@ -153,7 +153,7 @@ More times and dates can be specified using commas. This allows you to block mul
 Examples:
   * `#add Submit assignment #at 11:59pm 3 Oct`
   * `#edit 1 #at 11:58pm 3 Oct`
-  * `#list #at 2pm`
+  * `#search #at 2pm`
   * `#add Meeting with Boss #at 11am 3 Oct, 2pm 5 Oct`
 
 
@@ -167,7 +167,7 @@ Date indicates the last date by which this task should be done. Defaults to the 
 Examples:
   * `#add Finish 2103T Tutorial #before 1pm`
   * `#edit 3 #before 12:30pm`
-  * `#list #before 5pm 20 Oct`
+  * `#search #before 5pm 20 Oct`
 
 
 <a id="after"></a>
@@ -180,7 +180,7 @@ Date indicates the date after which the task should be done. Defaults to the cur
 Examples:
   * `#add Pay bills #after 11:50pm 30 Dec 2030`
   * `#edit 2 #after 11:59pm 30 Dec 2030`
-  * `#list #after 11am`
+  * `#search #after 11am`
 
 
 <a id="duration"></a>
@@ -193,7 +193,7 @@ Time units is one of mins/hrs/days/weeks/years
 Examples:
   * `#add Mid-term exam #at 7pm 3 Oct 2016 #duration 1 hr`
   * `#edit 2 #duration 2 weeks`
-  * `#list #duration 3 hrs`
+  * `#search #duration 3 hrs`
 
 
 #### Getting reminders: `#remind`
@@ -218,7 +218,7 @@ Format: `#venue <description of venue>`
 Examples:
   * `#add Lunch with Arthur #venue Avalon`
   * `#edit 1 #venue Round Table`
-  * `#list #venue Avalon`
+  * `#search #venue Avalon`
 
 
 ## Data Formats
@@ -274,7 +274,7 @@ Type | Command | Format
 :--------: | :--------: | ----- |
 Primary | [Help](#help) | `#help [<#command>]`
 Primary | [Add](#add) | `#add <task description> [<extensions>]`
-Primary | [List](#list) | `#list [<extensions>]`
+Primary | [Search](#search) | `#search [<extensions>]`
 Primary | [Edit](#edit) | `#edit <task number> [<extensions>]`
 Primary | [Delete](#delete) | `#delete <task number>`
 Primary | [Done](#done) | `#done <task number>`
