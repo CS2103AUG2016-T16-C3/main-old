@@ -42,7 +42,7 @@ Examples:
 
 <a id="add"></a>
 #### Adding a task to the list: `#add`
-Format: `#add #desc <task description> [<extensions>]`
+Format: `#add <task description> [<extensions>]`
 
 > Task description outlines the task to be added.<br> Extensions allow specifying more details about the task, such as deadlines and venues. <br>
 Without any extensions, this will be added as a floating task. <br>
@@ -73,15 +73,16 @@ Examples:
 
 <a id="edit"></a>
 #### Editing tasks: `#edit`
-Format: `#edit <task number> [<extensions>]`
+Format: `#edit <task number> [<new task description>] [<extensions>]`
 
 > Task number specifies which out of the tasks on the screen you wish to modify<br>
+If given, the new task description will replace the old one for this task<br>
 Fields for the specified extensions will be changed
 
 Examples:
-  * `#edit 1 #desc Dinner with Guinevere`
+  * `#edit 1 Dinner with Guinevere`
   * `#edit 2 #at 1am 3 Oct`
-  * `#edit 1 #desc Dinner with Guinevere #venue Under the stars`
+  * `#edit 1 Dinner with Guinevere #venue Under the stars`
 
 
 <a id="delete"></a>
@@ -140,18 +141,6 @@ Examples:
 
 
 ### Extensions
-
-<a id="desc"></a>
-#### Task Description: `#desc`
-Format: `#desc <task description>`
-
->Task description is simply plaintext about your task
-
-Examples:
-  * `#add #desc Dinner with Arthur`
-  * `#edit 2 #desc Dinner with Guinevere`
-  * `#list #desc Finish 2103T Tutorial`
-
 
 <a id="at"></a>
 #### At a certain time: `#at`
@@ -292,7 +281,6 @@ Primary | [Done](#done) | `#done <task number>`
 Primary | [Undo](#undo) | `#undo [<number of changes>]`
 Primary | [Redo](#redo) | `#redo [<number of changes>]`
 Primary | [Storage](#storage) | `#storage </absolute/path/to/folder>`
-Extension | [Desc](#desc) | `#desc <task description>`
 Extension | [At](#at) | `#at <time> [<date>], [<further times and dates>]`
 Extension | [Before](#before) | `#before <time> [<date>]`
 Extension | [After](#after) | `#after <time> [<date>]`
