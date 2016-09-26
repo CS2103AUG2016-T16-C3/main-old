@@ -64,6 +64,7 @@ Examples:
   * `#list`
   * `#list #before 2pm 30 Oct`
   * `#list #after 1am 1 Oct`
+  * `#list #after 1am 1 Oct #before 2pm 30 Oct`
   * `#list #venue Avalon`
   * `#list #after 1am 1 Oct #venue Avalon`
 
@@ -134,10 +135,11 @@ Examples:
 
 <a id="at"></a>
 #### At a certain time: `#at`
-Format: `#at <time> [<date>]`
+Format: `#at <time> [<date>], [<further times and dates>]`
 
 > Time indicates when the event begins. See format [here](#time)<br>
-Date indicates the date on which the event is. Defaults to the current day if not specified. See format [here](#date)
+Date indicates the date on which the event is. Defaults to the current day if not specified. See format [here](#date)<br>
+More times and dates can be specified using commas. This allows you to block multiple slots for a task. You can later decide which slot you want to do this in by using the edit command
 
 Examples:
   * `#add Submit assignment #at 11:59pm 3 Oct`
