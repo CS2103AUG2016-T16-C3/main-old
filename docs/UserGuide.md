@@ -28,16 +28,17 @@
 
 <a id="help"></a>
 #### Viewing help: `#help`
-Format: `#help`
+Format: `#help [<#command>]`
 
-> Help is also shown if you enter an incorrect command, like `asdf`
-
-#### Viewing help for a specific command: `#help`
-Format: `#help <#command>`
+> Shows complete help<br>
+If a command is specified, then shows help for that command only
+Help is also shown if you enter an incorrect command, like `asdf`
 
 Examples:
+  * `#help`
   * `#help #add`
   * `#help #list`
+
 
 <a id="add"></a>
 #### Adding a task to the list: `#add`
@@ -52,6 +53,7 @@ Examples:
   * `#add Dinner with Arthur #at 8pm 25 Sep #venue Avalon`
   * `#add Finish 2103T Tutorial #before 11:59pm 29 Sep`
   * `#add Pay bills #after 11:59pm 20 Aug 2030`
+
 
 <a id="list"></a>
 #### Listing tasks: `#list`
@@ -68,6 +70,7 @@ Examples:
   * `#list #venue Avalon`
   * `#list #after 1am 1 Oct #venue Avalon`
 
+
 <a id="edit"></a>
 #### Editing tasks: `#edit`
 Format: `#edit <task number> [<extensions>]`
@@ -80,6 +83,7 @@ Examples:
   * `#edit 2 #at 1am 3 Oct`
   * `#edit 1 #desc Dinner with Guinevere #venue Under the stars`
 
+
 <a id="delete"></a>
 #### Deleting tasks: `#delete`
 Format: `#delete <task number>`
@@ -89,6 +93,7 @@ Format: `#delete <task number>`
 Examples:
   * `#delete 1`
   * `#delete 3`
+
 
 <a id="done"></a>
 #### Ticking off tasks: `#done`
@@ -100,6 +105,7 @@ Examples:
   * `#done 1`
   * `#done 3`
 
+
 <a id="undo"></a>
 #### Undoing previous changes: `#undo`
 Format: `#undo [<number of changes>]`
@@ -110,6 +116,7 @@ Examples:
   * `#undo`
   * `#undo 3`
 
+
 <a id="redo"></a>
 #### Redoing undone changes: `#redo`
 Format: `#redo [<number of changes>]`
@@ -119,6 +126,18 @@ Format: `#redo [<number of changes>]`
 Examples:
   * `#redo`
   * `#redo 3`
+
+
+#### Specifying storage folder: `#storage`
+Format: `#storage </absolute/path/to/folder>`
+
+> Allows you to specify where the storage file should be kept. Path must be an absolute path to the storage folder <br>
+If this is set to a cloud storage folder, such as Dropbox, then this allows you to share your tasks across different devices
+
+Examples:
+  * `#storage /Documents/TaskManager/Storage`
+  * `#storage /Dropbox/MyTodoList/Storage`
+
 
 ### Extensions
 
@@ -133,6 +152,7 @@ Examples:
   * `#edit 2 #desc Dinner with Guinevere`
   * `#list #desc Finish 2103T Tutorial`
 
+
 <a id="at"></a>
 #### At a certain time: `#at`
 Format: `#at <time> [<date>], [<further times and dates>]`
@@ -145,6 +165,8 @@ Examples:
   * `#add Submit assignment #at 11:59pm 3 Oct`
   * `#edit 1 #at 11:58pm 3 Oct`
   * `#list #at 2pm`
+  * `#add Meeting with Boss #at 11am 3 Oct, 2pm 5 Oct`
+
 
 <a id="before"></a>
 #### Before a certain time: `#before`
@@ -158,9 +180,11 @@ Examples:
   * `#edit 3 #before 12:30pm`
   * `#list #before 5pm 20 Oct`
 
+
 <a id="after"></a>
 #### After a certain time: `#after`
 Format: `#after <time> [<date>]`
+
 > Time indicates the time after which the task should be done. See format [here](#time)<br>
 Date indicates the date after which the task should be done. Defaults to the current day if not specified. See format [here](#date)
 
@@ -169,9 +193,11 @@ Examples:
   * `#edit 2 #after 11:59pm 30 Dec 2030`
   * `#list #after 11am`
 
+
 <a id="duration"></a>
 #### For a certain duration: `#duration`
 Format: `#duration <number> <time units>`
+
 > Number is the number of time units for which the task will last<br>
 Time units is one of mins/hrs/days/weeks/years
 
@@ -180,15 +206,31 @@ Examples:
   * `#edit 2 #duration 2 weeks`
   * `#list #duration 3 hrs`
 
+
+#### Getting reminders: `#remind`
+Format: `#remind <time> [<date>], [<further times and dates>]`
+
+> Will send you a reminder by email at the time and date specified <br>
+For format of time, see [here](#time)<br>
+For format of date, see [here](#date). Date defaults to the current day if not specified
+
+Examples:
+  * `#add Meeting with Boss #at 1pm #remind 11am`
+  * `#add Meeting with Boss #at 1pm #remind 11am, 12:30pm`
+  * `#add Complete Assignment #remind 7am 10 Oct, 7am 11 Oct`
+
+
 <a id="venue"></a>
 #### At a Venue: `#venue`
 Format: `#venue <description of venue>`
+
 > The venue description is just stored as plain text
 
 Examples:
   * `#add Lunch with Arthur #venue Avalon`
   * `#edit 1 #venue Round Table`
   * `#list #venue Avalon`
+
 
 ## Data Formats
 
@@ -198,43 +240,50 @@ Examples:
   * `7pm`
   * `3:45am`
   * `1:00pm`
+
 <a id="hour"></a>
 * `hour`: `<number 1-12>`<br>
   Examples:
   * `7`
   * `12`
+
 <a id="minutes"></a>
 * `minutes`: `<2-digit number 00-59>`<br>
   Examples:
   * `03`
   * `58`
+
 <a id="date"></a>
 * `date`: `<day> <month> [<year>]`<br>
   Examples:
   * `5 Oct`
   * `5 Nov`
+
 <a id="day"></a>
 * `day`: `<number 1-31>`<br>
   Examples:
   * `1`
   * `31`
+
 <a id="month"></a>
 * `month`: `<3-letter abbreviation>`<br>
   Examples:
   * `Jan`
   * `Mar`
   * `Sep`
+
 <a id="year"></a>
 * `year`: `4-digit integer`<br>
   Examples:
   * `2016`
   * `2020`
 
+
 ## Command Summary
 
 Type | Command | Format
 :--------: | :--------: | ----- |
-Primary | [Help](#help) | `#help`
+Primary | [Help](#help) | `#help [<#command>]`
 Primary | [Add](#add) | `#add <task description> [<extensions>]`
 Primary | [List](#list) | `#list [<extensions>]`
 Primary | [Edit](#edit) | `#edit <task number> [<extensions>]`
@@ -242,11 +291,13 @@ Primary | [Delete](#delete) | `#delete <task number>`
 Primary | [Done](#done) | `#done <task number>`
 Primary | [Undo](#undo) | `#undo [<number of changes>]`
 Primary | [Redo](#redo) | `#redo [<number of changes>]`
+Primary | [Storage](#storage) | `#storage </absolute/path/to/folder>`
 Extension | [Desc](#desc) | `#desc <task description>`
-Extension | [At](#at) | `#at <time> [<date>]`
+Extension | [At](#at) | `#at <time> [<date>], [<further times and dates>]`
 Extension | [Before](#before) | `#before <time> [<date>]`
 Extension | [After](#after) | `#after <time> [<date>]`
 Extension | [Duration](#duration) | `#duration <number> <time units>`
+Extension | [Remind](#remind) | `#remind <time> [<date>], [<further times and dates>]`
 Extension | [Venue](#venue) | `#venue <description of venue>`
 Data | [Time](#time) | `<hour>[:<minutes>]<am/pm>`
 Data | [Hour](#hour) | `<number 1-12>`
