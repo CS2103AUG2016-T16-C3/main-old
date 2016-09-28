@@ -244,6 +244,18 @@ Examples:
   * `#search #venue Avalon`
 
 
+<a id="repeat"></a>
+#### Recurring Task: `#repeatevery`
+Format: `#repeat <number> <hour/week/month/year`
+
+> Number specifies how often the task should repeat. For example, #repeatevery 3 week would repeat every 3 weeks.
+
+Examples:
+  * `#add Lunch with Arthur #at 8pm #repeatevery 2 week`
+  * `#add 2103T Tutorial #at 4pm #repeatevery 1 week`
+  * `#edit 1 #repeatevery 1 month`
+
+
 <a id="priority"></a>
 #### Priority level for tasks: `#priority`
 Format: `#priority <low/med/high>`
@@ -361,8 +373,11 @@ Extension | [After](#after) | `#after <time> [<date>]`
 Extension | [Duration](#duration) | `#duration <number> <time units>`
 Extension | [Remind](#remind) | `#remind <time> [<date>], [<further times and dates>]`
 Extension | [Venue](#venue) | `#venue <description of venue>`
+Extension | [Repeat](#repeat) | `#repeatevery <number> <hour/week/month/year>`
+Extension | [Priority](#priority) | `#priority <low/med/high>`
 Extension | [Sort](#sort) | `#sort`
 Extension | [Float](#float) | `#float`
+Data | [Time and Date](#time-date) | `time or date or both`
 Data | [Time](#time) | `<hour>[:<minutes>]<am/pm>`
 Data | [Hour](#hour) | `<number 1-12>`
 Data | [Minutes](#minutes) | `<2-digit number 00-59>`
