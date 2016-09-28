@@ -28,7 +28,7 @@
 
 <a id="help"></a>
 #### Viewing help: `#help`
-Format: `#help [<#command>]`
+Format: `#help [#<command>]`
 
 > Shows complete help<br>
 If a command is specified, then shows help for that command only
@@ -140,13 +140,36 @@ Examples:
   * `#storage /Dropbox/MyTodoList/Storage`
 
 
+#### Changing command names: `#alias`
+Format: `#alias #<old command> #<new command>`
+
+> Allows you to change the name of a command according to preference
+
+Examples:
+  * `#alias #add #+`
+  * `#alias #delete #-`
+  * `#alias #undo #u`
+
+
+#### Changing command character: `#commandchar`
+Format: `#commandchar <new command character>`
+
+> Allows you to change the command character (# by default) to whatever you want
+
+Examples:
+  * `#commandchar /`
+    `/add Dinner with Mum`
+  * `#commandchar -`
+    `-add Dinner with Mum`
+
+
 ### Extensions
 
 <a id="at"></a>
 #### At a certain time: `#at`
-Format: `#at <time> [<date>], [<further times and dates>]`
+Format: `#at [<time and date>], [<further times and dates>]`
 
-> Time indicates when the event begins. See format [here](#time)<br>
+> Time and date together indicate when the event begins. See format [here](#time-date)<br>
 Date indicates the date on which the event is. Defaults to the current day if not specified. See format [here](#date)<br>
 More times and dates can be specified using commas. This allows you to block multiple slots for a task. You can later decide which slot you want to do this in by using the edit command
 
@@ -221,7 +244,57 @@ Examples:
   * `#search #venue Avalon`
 
 
+<a id="priority"></a>
+#### Priority level for tasks: `#priority`
+Format: `#priority <low/med/high>`
+
+> Helps give levels of importance to tasks <br>
+You can sort by priority so that it is easier to decide what task to do next<br>
+Priority level can be low, medium or high
+
+Examples:
+  * `#add Lunch with Arthur #priority high`
+  * `#edit 1 #priority med`
+  * `#search #priority high`
+
+
+<a id="sort"></a>
+#### Sort by priority level: `#sort`
+Format: `#sort`
+
+> ONLY works with search
+
+Examples:
+  * `#search #before 7pm #sort`
+  * `#search #after 1pm 12 Oct #sort`
+  * `#search #sort`
+
+
+<a id="float"></a>
+#### Search for floating tasks: `#float`
+Format: `#float`
+
+> ONLY works with search
+Will match any task without a set time or date
+
+Examples:
+  * `#search #float`
+  * `#search #float #venue Avalon`
+  * `#search #float #priority high`
+
+
 ## Data Formats
+
+<a id="time-date"></a>
+* `time and date`: `time or date or both`
+  > Formats of time and date are below<br>
+  Time defaults to 12:01 am if not specified<br>
+  Date defaults to the current date if not specified
+
+  Examples:
+  * `7pm 5 Oct`
+  * `3 Oct` (Stored as `12:01am 3 Oct`)
+  * `1pm` (Stored as `1pm <today's date>`)
 
 <a id="time"></a>
 * `time`: `<hour>[:<minutes>]<am/pm>`<br>
@@ -272,7 +345,7 @@ Examples:
 
 Type | Command | Format
 :--------: | :--------: | ----- |
-Primary | [Help](#help) | `#help [<#command>]`
+Primary | [Help](#help) | `#help [#<command>]`
 Primary | [Add](#add) | `#add <task description> [<extensions>]`
 Primary | [Search](#search) | `#search [<extensions>]`
 Primary | [Edit](#edit) | `#edit <task number> [<extensions>]`
@@ -281,12 +354,15 @@ Primary | [Done](#done) | `#done <task number>`
 Primary | [Undo](#undo) | `#undo [<number of changes>]`
 Primary | [Redo](#redo) | `#redo [<number of changes>]`
 Primary | [Storage](#storage) | `#storage </absolute/path/to/folder>`
+Primary | [Alias](#alias) | `#alias #<old command> #<new command>`
 Extension | [At](#at) | `#at <time> [<date>], [<further times and dates>]`
 Extension | [Before](#before) | `#before <time> [<date>]`
 Extension | [After](#after) | `#after <time> [<date>]`
 Extension | [Duration](#duration) | `#duration <number> <time units>`
 Extension | [Remind](#remind) | `#remind <time> [<date>], [<further times and dates>]`
 Extension | [Venue](#venue) | `#venue <description of venue>`
+Extension | [Sort](#sort) | `#sort`
+Extension | [Float](#float) | `#float`
 Data | [Time](#time) | `<hour>[:<minutes>]<am/pm>`
 Data | [Hour](#hour) | `<number 1-12>`
 Data | [Minutes](#minutes) | `<2-digit number 00-59>`
