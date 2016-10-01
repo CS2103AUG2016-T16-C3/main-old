@@ -2,6 +2,8 @@
 
 * [Quick Start](#quick-start)
 * [Features](#features)
+  * [Primary Commands](#primary-commands)
+  * [Extensions](#extensions)
 * [Data Formats](#data-formats)
 * [Command Summary](#command-summary)
 
@@ -31,7 +33,7 @@
 Format: `#help [#<command>]`
 
 > Shows complete help<br>
-If a command is specified, then shows help for that command only
+If a command is specified, then shows help for that command only<br>
 Help is also shown if you enter an incorrect command, like `asdf`
 
 Examples:
@@ -45,7 +47,7 @@ Examples:
 Format: `#add <task description> [<extensions>]`
 
 > Task description outlines the task to be added.<br> Extensions allow specifying more details about the task, such as deadlines and venues. <br>
-Without any extensions, this will be added as a floating task. <br>
+Without any timing information, this will be added as a floating task. <br>
 The details can be changed at any time using the `#edit` command.
 
 Examples:
@@ -211,7 +213,7 @@ Examples:
 Format: `#duration <number> <time units>`
 
 > Number is the number of time units for which the task will last<br>
-Time units is one of mins/hrs/days/weeks/years
+Time units is one of mins/hours/days/weeks/years
 
 Examples:
   * `#add Mid-term exam #at 7pm 3 Oct 2016 #duration 1 hr`
@@ -246,14 +248,14 @@ Examples:
 
 <a id="repeat"></a>
 #### Recurring Task: `#repeatevery`
-Format: `#repeat <number> <hour/week/month/year`
+Format: `#repeatevery <number> <time units>`
 
-> Number specifies how often the task should repeat. For example, #repeatevery 3 week would repeat every 3 weeks.
+> Number specifies how often the task should repeat. For example, #repeatevery 3 week would repeat every 3 weeks<br> Time units is one of hours/weeks/months/years
 
 Examples:
-  * `#add Lunch with Arthur #at 8pm #repeatevery 2 week`
-  * `#add 2103T Tutorial #at 4pm #repeatevery 1 week`
-  * `#edit 1 #repeatevery 1 month`
+  * `#add Lunch with Arthur #at 8pm #repeatevery 2 weeks`
+  * `#add 2103T Tutorial #at 4pm #repeatevery 1 weeks`
+  * `#edit 1 #repeatevery 1 months`
 
 
 <a id="priority"></a>
@@ -286,7 +288,7 @@ Examples:
 #### Search for floating tasks: `#float`
 Format: `#float`
 
-> ONLY works with search
+> ONLY works with search<br>
 Will match any task without a set time or date
 
 Examples:
@@ -329,9 +331,12 @@ Examples:
 
 <a id="date"></a>
 * `date`: `<day> <month> [<year>]`<br>
+  > Year defaults to current year if not specified
+  
   Examples:
   * `5 Oct`
   * `5 Nov`
+  * `1 Jan 2017`
 
 <a id="day"></a>
 * `day`: `<number 1-31>`<br>
@@ -373,7 +378,7 @@ Extension | [After](#after) | `#after <time> [<date>]`
 Extension | [Duration](#duration) | `#duration <number> <time units>`
 Extension | [Remind](#remind) | `#remind <time> [<date>], [<further times and dates>]`
 Extension | [Venue](#venue) | `#venue <description of venue>`
-Extension | [Repeat](#repeat) | `#repeatevery <number> <hour/week/month/year>`
+Extension | [Repeat](#repeat) | `#repeatevery <number> <time units>`
 Extension | [Priority](#priority) | `#priority <low/med/high>`
 Extension | [Sort](#sort) | `#sort`
 Extension | [Float](#float) | `#float`
